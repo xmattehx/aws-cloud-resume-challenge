@@ -1,4 +1,4 @@
-name: Changes to Website
+name: Upload Website
 
 on:
   workflow_dispatch:
