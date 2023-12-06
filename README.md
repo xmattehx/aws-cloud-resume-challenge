@@ -1,6 +1,6 @@
 # aws-cloud-resume-challenge
 
-****WORK IN PROGRESS***
+***WORK IN PROGRESS**
 
 Welcome to my cloud resumse challenge page! This is my attempt at at the cloud resume challange and I was be focusing on AWS.
 
