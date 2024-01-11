@@ -1,7 +1,5 @@
 provider "aws" {
     region = "ca-central-1"
-    access_key = "AKIA272UKKN466LMMK4E"
-    secret_key = "***REMOVED***"
 }
 
 resource "aws_instance" "testdeploy" {
