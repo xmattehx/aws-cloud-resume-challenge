@@ -1,12 +1,12 @@
-provider "aws" {
-    region = "ca-central-1"
-}
+#provider "aws" {
+#    region = "ca-central-1"
+#}
 
 resource "aws_instance" "testdeploy" {
-    ami = "ami-0a2e7efb4257c0907"
+    ami = "ami-05ed7c410d6798451"
     instance_type = "t2.micro"
 
 tags = {
-    # Name = "Ubuntu"
+     Name = "WinServer_AnsibleTst"
   }
 }
