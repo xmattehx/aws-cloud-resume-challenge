@@ -8,7 +8,7 @@ resource "aws_instance" "testdeploy" {
     key_name = "keypair"
     subnet_id = aws_subnet.subnet1.id
     vpc_security_group_ids = [aws_security_group.allow_rdp.id]
-    associate_public_ip_address = "true"
+    #associate_public_ip_address = "true"
 
 tags = {
      Name = "WinServer_AnsibleTst"
@@ -21,7 +21,7 @@ resource "aws_instance" "ansiblecont" {
     key_name = "keypair"
     subnet_id = aws_subnet.subnet1.id
     vpc_security_group_ids = [aws_security_group.allow_port_22.id]
-    associate_public_ip_address = "true"
+    #associate_public_ip_address = "true"
 
 tags = {
      Name = "Ansible_Controller"
