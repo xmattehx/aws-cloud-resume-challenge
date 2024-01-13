@@ -62,9 +62,9 @@ data "http" "myip" {
 resource "aws_vpc_security_group_ingress_rule" "allow_rdp_ipv4" {
   security_group_id = aws_security_group.allow_rdp.id
   cidr_ipv4         = aws_vpc.main.cidr_block
-  from_port         = 3389
+  from_port         = 0
   ip_protocol       = "tcp"
-  to_port           = 3389
+  to_port           = 65535
 }
 
 //Allow RDP from Home IP
@@ -94,14 +94,16 @@ resource "aws_security_group" "allow_port_22" {
   }
 }
 
+//Allow Port 22 in from VPC CIDR Block
 resource "aws_vpc_security_group_ingress_rule" "allow_22_ipv4" {
   security_group_id = aws_security_group.allow_port_22.id
   cidr_ipv4         = aws_vpc.main.cidr_block
-  from_port         = 22
+  from_port         = 0
   ip_protocol       = "tcp"
-  to_port           = 22
+  to_port           = 65535
 }
 
+//Allow Port 22 in from Home IP
 resource "aws_vpc_security_group_ingress_rule" "allow_22_ipv4_home" {
   security_group_id = aws_security_group.allow_port_22.id
   cidr_ipv4         = "${chomp(data.http.myip.response_body)}/32"
@@ -110,6 +112,7 @@ resource "aws_vpc_security_group_ingress_rule" "allow_22_ipv4_home" {
   to_port           = 22
 }
 
+//Allow All traffic out
 resource "aws_vpc_security_group_egress_rule" "allow_all_traffic_ipv4_port22" {
   security_group_id = aws_security_group.allow_port_22.id
   cidr_ipv4         = "0.0.0.0/0"
