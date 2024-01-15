@@ -96,8 +96,8 @@ resource "aws_security_group" "allow_port_22" {
   }
 }
 
-//Allow Port 22 in from VPC CIDR Block
-resource "aws_vpc_security_group_ingress_rule" "allow_22_ipv4" {
+//Allow All Ports in from VPC CIDR Block
+resource "aws_vpc_security_group_ingress_rule" "allow_all_22_ipv4" {
   security_group_id = aws_security_group.allow_port_22.id
   cidr_ipv4         = aws_vpc.main.cidr_block
   from_port         = 0
